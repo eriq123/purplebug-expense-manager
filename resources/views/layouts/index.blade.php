@@ -69,7 +69,7 @@
     <script src="{{asset('assets/vendor/jquery-placeholder/jquery.placeholder.js')}}"></script>
 
     <!-- pageloader -->
-    <!-- <script src="{{asset('assets/javascripts/loader/loadingoverlay.min.js')}}"></script> -->
+    <script src="{{asset('assets/javascripts/loadingoverlay.min.js')}}"></script>
 
   
     <script>
@@ -79,14 +79,14 @@
         $('.alert').delay(2000).fadeOut('slow');
 
         // start overlay
-        // $(document).ajaxStart(function () {
-        //     $.LoadingOverlay("show", {
-        //         image       : "",
-        //         fontawesome : "fa fa-cog fa-spin"
-        //     });
-        // }).ajaxStop(function () {
-        //     $.LoadingOverlay("hide");
-        // }); 
+        $(document).ajaxStart(function () {
+            $.LoadingOverlay("show", {
+                image       : "",
+                fontawesome : "fa fa-cog fa-spin"
+            });
+        }).ajaxStop(function () {
+            $.LoadingOverlay("hide");
+        }); 
         // end loading overlay
 
         // start ajax setup

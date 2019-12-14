@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class RolesController extends Controller
 {
     public function index(){
-    	$panel_title = "Role";
+    	$panel_title = "Roles";
     	$add_button_name = "Add Role";
 
     	$roles = Role::all();
