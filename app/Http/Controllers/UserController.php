@@ -6,6 +6,7 @@ use App\Role;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -43,11 +44,13 @@ class UserController extends Controller
 
     	}elseif ($request->get('submit') == "update") {
 
+    		$user = User::findorFail($request->get('id'));
+
     		$request->validate([
+                'email' => Rule::unique('users')->ignore($user->id),
     			'password' => ' nullable | min:6 | string | confirmed'
     		]);
 
-    		$user = User::findorFail($request->get('id'));
     	}
 
     		$user->role_id = $request->get('role');
